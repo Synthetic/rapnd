@@ -19,7 +19,6 @@ GEM
     mocha (0.10.3)
       metaclass (~> 0.0.1)
     rake (0.9.3.beta.1)
-    rcov (0.9.11)
     redis (2.2.2)
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
@@ -42,7 +41,8 @@ DEPENDENCIES
   i18n
   jeweler
   mocha
-  rcov
   redis (~> 2.2.2)
   rspec
-  
+
+BUNDLED WITH
+   1.10.6

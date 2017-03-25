@@ -12,5 +12,4 @@ group :development do
   gem "rspec"
   gem "bundler"
   gem "jeweler"
-  gem "rcov"
 end
