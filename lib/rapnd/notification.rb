@@ -27,8 +27,17 @@ module Rapnd
     end
     
     def to_bytes
-      j = json_payload
-      [0, 0, 32, self.device_token, 0, j.bytesize, j].pack("cccH*cca*").force_encoding('ASCII-8BIT')
+      encoded_payload = json_payload
+      
+      [
+        1,
+        0, # identifier
+        0, # expiry epoch time
+        32, # device token length
+        self.device_token,
+        encoded_payload.bytesize,
+        encoded_payload
+      ].pack('CNNnH64nA*')
     end
   end
 end
