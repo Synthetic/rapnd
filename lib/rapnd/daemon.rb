@@ -55,7 +55,7 @@ module Rapnd
     def run!
       loop do
         begin
-          message = @redis.blpop(self.queue, 1)
+          message = @redis.blpop(self.queue, :timeout => 1)
           if message
             notification = Rapnd::Notification.new(JSON(message.last).symbolize_keys)
             self.connect! unless self.connected

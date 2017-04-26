@@ -21,6 +21,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{redis APN daemon}
   gem.email = "veraticus@gmail.com"
   gem.authors = ["Josh Symonds"]
+  gem.version = "0.6.0"
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

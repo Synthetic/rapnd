@@ -19,7 +19,7 @@ GEM
     mocha (0.10.3)
       metaclass (~> 0.0.1)
     rake (0.9.3.beta.1)
-    redis (2.2.2)
+    redis (3.3.3)
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
       rspec-expectations (~> 2.8.0)
@@ -41,7 +41,7 @@ DEPENDENCIES
   i18n
   jeweler
   mocha
-  redis (~> 2.2.2)
+  redis (~> 3.0)
   rspec
 
 BUNDLED WITH

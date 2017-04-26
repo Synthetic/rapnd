@@ -1,9 +1,9 @@
 module Rapnd
   class Notification
-    attr_accessor :badge, :alert, :sound, :content_available, :custom_properties, :device_token
+    attr_accessor :badge, :alert, :sound, :content_available, :category, :custom_properties, :mutable_content, :device_token
     
     def initialize(hash)
-      [:badge, :alert, :sound, :device_token, :content_available, :custom_properties].each do |k|
+      [:badge, :alert, :sound, :device_token, :content_available, :category, :custom_properties, :mutable_content].each do |k|
         self.instance_variable_set("@#{k}".to_sym, hash[k]) if hash[k]
       end
       raise "Must provide device token: #{hash}" if self.device_token.nil?
@@ -12,7 +12,7 @@ module Rapnd
     
     def payload
       p = Hash.new
-      [:badge, :alert, :sound, :content_available].each do |k|
+      [:badge, :alert, :sound, :category, :content_available, :mutable_content].each do |k|
         p[k.to_s.gsub('_','-').to_sym] = send(k) if send(k)
       end
       aps = {:aps => p}
