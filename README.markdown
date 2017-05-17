@@ -14,6 +14,7 @@ Usage: rapnd start [options]
         --password=OPTIONAL          Password for the cert pem file
         --redis_host=OPTIONAL        Redis hostname
         --redis_port=OPTIONAL        Redis port
+        --redis_env_key=OPTIONAL     A key for an environment variable specifying a Redis URI (useful for deploying to Heroku)
         --environment=OPTIONAL       Specify sandbox or production
         --queue=OPTIONAL             Name of the redis queue
         --foreground                 Run in the foreground
