@@ -31,7 +31,7 @@ module Rapnd
       @queue = options[:queue]
       @cert = options[:cert]
       @host = options[:host]
-      @logger = Logger.new("#{options[:dir]}/log/#{options[:queue]}.log")
+      @logger = Logger.new(options[:log_stdout] ? STDOUT : "#{options[:dir]}/log/#{options[:queue]}.log")
       @logger.info "Listening on queue: #{self.queue}"
     end
     

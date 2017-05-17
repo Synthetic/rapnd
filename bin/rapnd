@@ -64,6 +64,10 @@ OptionParser.new do |opts|
   opts.on("--airbrake=OPTIONAL", "Airbrake API key") do |airbrake|
     options[:airbrake] = airbrake
   end
+  
+  opts.on("--log_stdout", "Log to STDOUT rather than log/<queue_name>") do |log_stdout|
+    options[:log_stdout] = true
+  end
 
   opts.on('--help', 'Show help') do |help|
     puts opts
