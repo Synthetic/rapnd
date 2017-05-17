@@ -76,17 +76,15 @@ end.parse!
 
 case command
 when 'start'
-  unless options[:foreground]
-    Daemons.daemonize(
-      :app_name => options[:queue],
-      :dir_mode => :normal,
-      :dir => "#{options[:dir]}/tmp",
-      :log_dir => "#{options[:dir]}/log",
-      :backtrace => true,
-      :log_output => true
-    )
-  end
-
+  Daemons.daemonize(
+    :app_name => options[:queue],
+    :dir_mode => :normal,
+    :dir => "#{options[:dir]}/tmp",
+    :log_dir => "#{options[:dir]}/log",
+    :backtrace => true,
+    :log_output => true,
+    :ontop => options[:foreground] || false
+  )
   Rapnd::Daemon.new(options).run!
 when 'stop'
   unless options[:foreground]
