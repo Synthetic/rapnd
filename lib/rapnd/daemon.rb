@@ -36,7 +36,7 @@ module Rapnd
     end
     
     def connect!
-      @logger.info 'Connecting...'
+      @logger.info "Connecting to #{@host}..."
       @context      = OpenSSL::SSL::SSLContext.new
       @context.cert = OpenSSL::X509::Certificate.new(File.read(@cert))
       @context.key  = OpenSSL::PKey::RSA.new(File.read(@cert), @password)
@@ -59,8 +59,8 @@ module Rapnd
           if message
             notification = Rapnd::Notification.new(JSON(message.last).symbolize_keys)
             self.connect! unless self.connected
-            @logger.info "Sending #{notification.device_token}: #{notification.json_payload}"
-            self.apple.write(notification.to_bytes)
+            result = self.apple.write(notification.to_bytes)
+            @logger.info "Sent #{notification.device_token}: #{notification.json_payload} -> #{result}"
           end
         rescue Exception => e
           if e.class == Interrupt || e.class == SystemExit
