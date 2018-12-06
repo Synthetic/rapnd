@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "hiredis", "~> 0.4.4"
+gem "hiredis", "~> 0.5"
 gem "redis", "~> 3.0", :require => ["redis/connection/hiredis", "redis"]
 gem 'activesupport'
 gem 'daemons', '1.1.6'
